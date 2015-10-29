@@ -47,6 +47,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stock.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GigaBoomLib\GigaBoomLib.csproj">
+      <Project>{980d84cf-61df-49a7-8bbc-46fede1d0a98}</Project>
+      <Name>GigaBoomLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
