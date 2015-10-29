@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GigaBoom", "GigaBoom\GigaBoom.csproj", "{F1E9CF19-BEA8-434C-A91A-9E59CCB72C38}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GigaBoomLib", "GigaBoomLib\GigaBoomLib.csproj", "{980D84CF-61DF-49A7-8BBC-46FEDE1D0A98}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{2050F187-9C99-4BCF-B237-D59ADC85B12C}"
@@ -12,33 +10,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inventory", "Inventory\Inventory.csproj", "{7B8BC2AB-8F3C-4EAB-A199-21D2B6F137DA}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 5
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://bgonzales20002.visualstudio.com/defaultcollection
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = GigaBoom\\GigaBoom.csproj
-		SccProjectName1 = GigaBoom
-		SccLocalPath1 = GigaBoom
-		SccProjectUniqueName2 = GigaBoomLib\\GigaBoomLib.csproj
-		SccProjectName2 = GigaBoomLib
-		SccLocalPath2 = GigaBoomLib
-		SccProjectUniqueName3 = UnitTest\\UnitTest.csproj
-		SccProjectName3 = UnitTest
-		SccLocalPath3 = UnitTest
-		SccProjectUniqueName4 = Inventory\\Inventory.csproj
-		SccProjectName4 = Inventory
-		SccLocalPath4 = Inventory
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F1E9CF19-BEA8-434C-A91A-9E59CCB72C38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F1E9CF19-BEA8-434C-A91A-9E59CCB72C38}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F1E9CF19-BEA8-434C-A91A-9E59CCB72C38}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F1E9CF19-BEA8-434C-A91A-9E59CCB72C38}.Release|Any CPU.Build.0 = Release|Any CPU
 		{980D84CF-61DF-49A7-8BBC-46FEDE1D0A98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{980D84CF-61DF-49A7-8BBC-46FEDE1D0A98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{980D84CF-61DF-49A7-8BBC-46FEDE1D0A98}.Release|Any CPU.ActiveCfg = Release|Any CPU
