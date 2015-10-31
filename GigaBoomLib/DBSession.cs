@@ -14,19 +14,43 @@ namespace GigaBoomLib
 
         }
 
-        public void Insert(string sql)
-        {
-            using (SqlCommand cmd = new SqlCommand())
-            {
-                try 
-                {
-                    cmd.Connection = SqlConnection;
-                    cmd.CommandText = sql;
-                    int recordsAffected = cmd.ExecuteNonQuery();
-                }
-                catch (Exception)
-                {
+        //public void Insert(string sql)
+        //{
+        //    using (SqlCommand cmd = new SqlCommand())
+        //    {
+        //        try 
+        //        {
+        //            cmd.Connection = SqlConnection;
+        //            cmd.CommandText = sql;
+        //            int recordsAffected = cmd.ExecuteNonQuery();
+        //        }
+        //        catch (Exception)
+        //        {
 
+        //        }
+        //    }
+        //}
+
+
+        public bool Insert(string sql)
+        {
+
+            using (Connection cn = new Connection())
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    try
+                    {
+                        cmd.Connection = cn.SqlConnection;
+                        cmd.CommandText = sql;
+                        int recordsAffected = cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        System.Diagnostics.Debug.WriteLine(ex.Message);
+                        return false;
+                    }
                 }
             }
         }

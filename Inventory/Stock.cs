@@ -8,7 +8,7 @@ using GigaBoomLib;
 
 namespace Inventory
 {
-    public class Stock
+    public class Stock : IStock
     {
         public int StockID { get; set; }
         public Guid StockGuid { get; set; }

@@ -8,9 +8,9 @@ namespace GigaBoomLib
 {
     public interface CRUD
     {
-        void Insert(object sender, EventArgs ea);
-        void Update(object sender, EventArgs ea);
-        void Delete(object sender, EventArgs ea);
-        void Find(object sender, EventArgs ea);
+        T Insert<T>(T obj);
+        T Update<T>(T obj);
+        W Delete<T, W>(T obj);
+        W Find<T, W>(T obj);
     }
 }
