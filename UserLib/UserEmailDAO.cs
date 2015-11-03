@@ -8,9 +8,26 @@ using GigaBoomLib;
 
 namespace UserLib
 {
-    public class UserEmailDAO
+    public class UserEmailDAO : IDisposable
     {
-        static public bool Insert(UserEmail userEmail)
+        private UserDAO userDAO = null;
+
+        public UserEmailDAO()
+        {
+            userDAO = new UserDAO();
+        }
+
+        ~UserEmailDAO()
+        {
+            userDAO = null;
+        }
+
+        public void Dispose()
+        {
+            userDAO = null;
+        }
+
+        public bool Insert(UserEmail userEmail)
         {
 
             string sql = string.Format("INSERT INTO UserEmails(UserID, Email, Password) VALUES ('{0}', '{1}', '{2}') ", userEmail.UserID, userEmail.Email, userEmail.Password);
@@ -34,7 +51,7 @@ namespace UserLib
             }
         }
 
-        static public User FindUserEmailID(int userEmailID)
+        public User FindUserEmailID(int userEmailID)
         {
             User user = null;
             string sql = string.Format("SELECT * FROM UserEmails WHERE UserEmailID = '{0}' ", userEmailID);
@@ -53,7 +70,7 @@ namespace UserLib
                             while (reader.Read())
                             {
                                 user.UserID = (int)reader["UserID"];
-                                user = UserDAO.FindById(user.UserID);
+                                user = userDAO.FindById(user.UserID);
                             }
                             return user;
                         }
@@ -69,7 +86,7 @@ namespace UserLib
             }
         }
 
-        static public User FindEmail(string email)
+        public User FindEmail(string email)
         {
             User user = null;
             string sql = string.Format("SELECT * FROM UserEmails WHERE Email = '{0}' ", email);
@@ -88,7 +105,7 @@ namespace UserLib
                             while (reader.Read())
                             {
                                 user.UserID = (int)reader["UserID"];
-                                user = UserDAO.FindById(user.UserID);
+                                user = userDAO.FindById(user.UserID);
                             }
                             return user;
                         }
@@ -104,7 +121,7 @@ namespace UserLib
             }
         }
 
-        static public User Login(string email, string pwd)
+        public User Login(string email, string pwd)
         {
             User user = null;
 
@@ -125,7 +142,7 @@ namespace UserLib
                             {
                                 user = new User();
                                 user.UserID = (int)reader["UserID"];
-                                user = UserDAO.FindById(user.UserID);
+                                user = userDAO.FindById(user.UserID);
                             }
                             return user;
                         }
@@ -142,7 +159,7 @@ namespace UserLib
         }
 
 
-        static public List<UserEmail> GetEmailList(int userID)
+        public List<UserEmail> GetEmailList(int userID)
         {
             List<UserEmail> list = new List<UserEmail>();
 

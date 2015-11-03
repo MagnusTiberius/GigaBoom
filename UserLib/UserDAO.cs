@@ -8,13 +8,26 @@ using GigaBoomLib;
 
 namespace UserLib
 {
-    public class UserDAO : IUserDAO
+    public class UserDAO : IUserDAO, IDisposable
     {
+        UserEmailDAO userEmailDAO = null;
+
         public UserDAO()
         {
+            userEmailDAO = new UserEmailDAO();
         }
 
-        static public User Insert(string loginName)
+        ~UserDAO()
+        {
+            userEmailDAO = null;
+        }
+
+        public void Dispose()
+        {
+            userEmailDAO = null;
+        }
+
+        public User Insert(string loginName)
         {
             if (FindLoginName(loginName) != null)
                 return null;
@@ -40,7 +53,7 @@ namespace UserLib
             }
         }
         
-        static public User FindById(int id)
+        public User FindById(int id)
         {
             User s = null;
             string sql = string.Format("SELECT * FROM Users WHERE UserID = '{0}' ", id);
@@ -61,7 +74,7 @@ namespace UserLib
                                 s = new User();
                                 s.UserID = (int)reader["UserID"];
                                 s.LoginName = reader["LoginName"].ToString();
-                                s.EmailList = UserEmailDAO.GetEmailList(s.UserID);
+                                s.EmailList = userEmailDAO.GetEmailList(s.UserID);
                             }
                             return s;
                         }
@@ -77,7 +90,7 @@ namespace UserLib
             }
         }
 
-        static public User FindLoginName(string LoginName)
+        public User FindLoginName(string LoginName)
         {
             User s = null;
             string sql = string.Format("SELECT * FROM Users WHERE LoginName = '{0}' ", LoginName);
@@ -98,7 +111,7 @@ namespace UserLib
                                 s = new User();
                                 s.UserID = (int)reader["UserID"];
                                 s.LoginName = reader["LoginName"].ToString();
-                                s.EmailList = UserEmailDAO.GetEmailList(s.UserID);
+                                s.EmailList = userEmailDAO.GetEmailList(s.UserID);
                             }
                             return s;
                         }
@@ -114,7 +127,7 @@ namespace UserLib
             }
         }
 
-        static public void AddEmail(User s, string email, string pwd)
+        public void AddEmail(User s, string email, string pwd)
         {
             UserEmail ue = new UserEmail();
             ue.UserID = s.UserID;
