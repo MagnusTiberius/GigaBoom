@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GigaBoomLib;
 
 namespace LocationLib
 {
-    public class State
+    public class State : IdBase
     {
-        public string Name { get; set; }
-        public string Code { get; set; }
+        public string Comment { get; set; }
     }
 }
